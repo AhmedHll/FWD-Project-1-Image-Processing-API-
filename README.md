@@ -16,24 +16,25 @@ You must have these installed on your machine:
 
 After downloading the project here's a couple of things you should do in order to run it:
 
-- Head to the project folder through your terminal and run these commands
+- Head to the project folder through your terminal and run these script's commands.
 
 | todo | run | 
 | :--- | :---- | 
-| test | npm run test | 
-| start | npm run start |
-| build | npm run build |
-| lint| npm run lint |
-| lint-fix| npm run lint-fix |
-| prettier| npm run prettier |
+| test | npm run build && npx jasmine | 
+| start| node ./build/index.js |
+| dev | nodemon ./src/index.ts |
+| build| tsc -p . |
+| lint| eslint . --ext .ts |
+| lint-fix| eslint . --ext .ts --fix |
+| prettier| prettier --config .prettierrc \"src/**/*.ts\" --write |
 
-- Then open your browser and go to `http://localhost:3000` or with the written port in your .env file.
+- Then open your browser and go to `http://localhost:5000` or with the written port in your .env file.
 
 ## Documentation
 
 - Using the following format, you can provide your desired width & height of any image in `images` folder
-  and a thumbnail with these dimensions will be created in `public/thumbnails`.
-  > `http://localhost:3000/resize-image?filename=image1&width=200&height=200`
+  and a thumbnail with these dimensions will be created in `images/thumbnails`.
+  > `http://localhost:5000/?name=fjord&width=500&height=400`
 - if you didn't provide any width or height, you will get an error message.
 
 - The thumbnail will be created in the first time only, after that it will be served from the thumbnails folder directly.
